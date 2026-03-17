@@ -96,14 +96,14 @@
 
         default_layer {
             bindings = <
-&kp TAB           &kp SQT            &kp COMMA    &kp PERIOD    &kp P           &kp Y               &kp F      &kp G         &kp C          &kp R             &kp L       &kp BACKSLASH
-&kp UNDERSCORE    &mt LG(LCMD) A     &mt LALT O   &mt LCTRL E   &mt LSHFT U     &kp I               &kp D      &mt RSHIFT H  &mt LCTRL T    &mt RALT N        &mt RCMD S  &kp MINUS
-&kp LSHFT         &kp SEMICOLON      &kp Q        &kp J         &kp K           &kp X               &kp B      &kp M         &kp W          &kp V             &kp Z       &kp PLUS
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp AT_SIGN  &kp QUESTION  &kp EXCL                                       &kp GRAVE     &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL   &kp LC(UP_ARROW)
+&kp TAB         &kp SQT         &kp COMMA    &kp PERIOD    &kp P           &kp Y               &kp F      &kp G         &kp C          &kp R             &kp L       &kp BACKSLASH
+&kp UNDERSCORE  &mt LG(LCMD) A  &mt LALT O   &mt LCTRL E   &mt LSHFT U     &kp I               &kp D      &mt RSHIFT H  &mt LCTRL T    &mt RALT N        &mt RCMD S  &kp MINUS
+&kp LSHFT       &kp SEMICOLON   &kp Q        &kp J         &kp K           &kp X               &kp B      &kp M         &kp W          &kp V             &kp Z       &kp PLUS
+&trans          &kp POUND       &kp AT_SIGN  &kp QUESTION  &kp EXCL                                       &kp GRAVE     &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL   &kp LC(UP_ARROW)
 
 
-                                                                &kp RET         &kp DEL  &kp ESC    &kp GRAVE  &kp BSPC      &kp SPACE
-                                                                &kp LEFT_SHIFT  &mo 1    &mo 6      &kp CAPS   &mo 1         &mo 2
+                                                           &kp RET         &kp DEL  &kp ESC    &kp GRAVE  &kp BSPC      &kp SPACE
+                                                           &kp LEFT_SHIFT  &mo 1    &mo 6      &kp CAPS   &mo 1         &mo 2
             >;
         };
 
@@ -112,7 +112,7 @@
 &kp PIPE   &kp PERCENT                  &kp AMPERSAND             &kp ASTERISK                   &kp DOLLAR                    &kp CARET                &kp ASTERISK    &kp KP_NUMBER_7              &kp KP_NUMBER_8                &kp KP_NUMBER_9            &kp KP_SLASH            &trans
 &kp MINUS  &mt LEFT_COMMAND LEFT_BRACE  &mt LEFT_ALT RIGHT_BRACE  &mt LEFT_CONTROL LEFT_BRACKET  &mt LEFT_SHIFT RIGHT_BRACKET  &kp EQUAL                &trans          &mt RIGHT_SHIFT KP_NUMBER_4  &mt RIGHT_CONTROL KP_NUMBER_5  &mt RIGHT_ALT KP_NUMBER_6  &mt RIGHT_GUI KP_MINUS  &trans
 &kp PLUS   &kp LESS_THAN                &kp GREATER_THAN          &kp LEFT_PARENTHESIS           &kp RIGHT_PARENTHESIS         &kp AMPERSAND            &kp LEFT_SHIFT  &kp KP_NUMBER_1              &kp KP_NUMBER_2                &kp KP_NUMBER_3            &kp PLUS                &trans
-&kp AT     &kp BACKSLASH                &kp SLASH                 &kp QUESTION                   &kp EXCL                                                               &kp LESS_THAN                &kp KP_NUMBER_0                &kp GREATER_THAN           &kp KP_EQUAL            &trans
+&kp AT     &kp BACKSLASH                &kp SLASH                 &kp POUND                      &kp GRAVE                                                              &kp LESS_THAN                &kp KP_NUMBER_0                &kp GREATER_THAN           &kp KP_EQUAL            &trans
 
 
                                                                                                  &trans                        &trans         &trans    &trans          &trans                       &trans
@@ -191,7 +191,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -199,10 +199,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 10>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
