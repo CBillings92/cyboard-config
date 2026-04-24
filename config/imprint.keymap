@@ -89,6 +89,13 @@
             bindings = <&kp D &kp E &kp MINUS &kp R &kp E &kp G &kp R &kp P &kp T &kp MINUS &kp E &kp N &kp G &kp I &kp N &kp E &kp E &kp R &kp S &kp MINUS &kp S &kp Q &kp U &kp A &kp D &kp KP_ENTER>;
             label = "SLACK_CH_SQUAD";
         };
+
+        scrn_shot: scrn_shot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LC(LS(NUMBER_4)))>;
+            label = "SCRN_SHOT";
+        };
     };
 
     keymap {
@@ -99,7 +106,7 @@
 &kp TAB         &kp SQT         &kp COMMA    &kp PERIOD    &kp P           &kp Y               &kp F      &kp G         &kp C          &kp R             &kp L       &kp BACKSLASH
 &kp UNDERSCORE  &mt LG(LCMD) A  &mt LALT O   &mt LCTRL E   &mt LSHFT U     &kp I               &kp D      &mt RSHIFT H  &mt LCTRL T    &mt RALT N        &mt RCMD S  &kp MINUS
 &kp LSHFT       &kp SEMICOLON   &kp Q        &kp J         &kp K           &kp X               &kp B      &kp M         &kp W          &kp V             &kp Z       &kp PLUS
-&trans          &kp POUND       &kp AT_SIGN  &kp QUESTION  &kp EXCL                                       &kp GRAVE     &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL   &kp LC(UP_ARROW)
+&scrn_shot      &kp POUND       &kp AT_SIGN  &kp QUESTION  &kp EXCL                                       &kp GRAVE     &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL   &kp LC(UP_ARROW)
 
 
                                                            &kp RET         &kp DEL  &kp ESC    &kp GRAVE  &kp BSPC      &kp SPACE
@@ -191,7 +198,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -199,10 +206,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 10>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
